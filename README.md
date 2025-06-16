@@ -46,7 +46,7 @@ git clone https://github.com/moonsip1224/Wine-manager.git
 cd Wine-manager/local
 
 # Single command installation and startup (handles EVERYTHING)
-./start-wine-manager.sh
+./start
 ```
 
 This script automatically:
@@ -74,7 +74,7 @@ Wine-manager/
 │   └── README.md           # Railway deployment guide
 │
 ├── local/                   # 🖥️  Local deployment (Linux)
-│   ├── start-wine-manager.sh        # Complete setup & start script
+│   ├── start                        # Complete setup & start script
 │   ├── install-dependencies.sh      # System dependency installer
 │   ├── setup-local.sh              # Environment configurator
 │   ├── install-vinegar-local.sh     # Vinegar for local setup
@@ -134,14 +134,14 @@ Once running, access these applications via the web interface:
 ### Environment Variables
 
 **Both deployments support:**
-- `PORT` - Web interface port (default: 8080)
+- `PORT` - Web interface port (default: 8080 for Railway, 4000 for local)
 
 **Local deployment also supports:**
 - `DISPLAY_RESOLUTION` - Screen resolution (default: 1024x768x24)
 
 ### VNC Access
 
-- **URL**: Your deployment URL or `http://localhost:8080`
+- **URL**: Your deployment URL or `http://localhost:4000` (local) / `http://localhost:8080` (Railway)
 - **Password**: `$$Hello1$$`
 
 ### Wine Configuration

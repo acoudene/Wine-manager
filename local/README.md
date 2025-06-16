@@ -25,7 +25,7 @@ git clone https://github.com/moonsip1224/Wine-manager.git
 cd Wine-manager/local
 
 # Run the complete setup and start script (handles EVERYTHING)
-./start-wine-manager.sh
+./start
 ```
 
 That's it! This single script will:
@@ -102,12 +102,12 @@ Once installed, manage your Wine Manager with these commands:
 ## 🌐 Access & Usage
 
 ### Web Interface
-- **URL**: `http://localhost:8080` (or your custom port)
+- **URL**: `http://localhost:4000` (or your custom port)
 - **VNC Password**: `$$Hello1$$`
 
 ### Custom Port
 ```bash
-PORT=8081 ./start-wine-manager.sh
+PORT=8081 ./start
 ```
 
 ### Network Access
@@ -117,7 +117,7 @@ Access from other devices on your network:
 ip addr show
 
 # Access from other devices
-http://YOUR_IP_ADDRESS:8080
+http://YOUR_IP_ADDRESS:4000
 ```
 
 ## 📱 Available Applications
@@ -182,10 +182,10 @@ sudo pacman -S curl wget
 **Port Already in Use**
 ```bash
 # Check what's using the port
-sudo netstat -tlnp | grep :8080
+sudo netstat -tlnp | grep :4000
 
 # Use different port
-PORT=8081 ./start-wine-manager.sh
+PORT=8081 ./start
 ```
 
 **Wine/Roblox Issues**
@@ -221,7 +221,7 @@ sleep 5
 
 - **VNC Password**: Default is `$$Hello1$$`
 - **Network Access**: Only allow trusted networks
-- **Firewall**: Consider restricting port 8080 access
+- **Firewall**: Consider restricting port 4000 access
 - **Updates**: Keep system and Wine dependencies updated
 
 ## 📁 Directory Structure
@@ -245,7 +245,7 @@ sleep 5
 ```bash
 # Use lower resolution
 export DISPLAY_RESOLUTION="800x600x24"
-./start-wine-manager.sh
+./start
 ```
 
 ### Optimize for Gaming

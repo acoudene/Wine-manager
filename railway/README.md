@@ -48,7 +48,7 @@ This folder contains everything needed to deploy the Wine Manager to Railway.com
 ```
 railway/
 ├── Dockerfile              # Container definition (Wine-free base)
-├── start.sh                # Main startup script with dependency handling
+├── start                   # Main startup script with dependency handling
 ├── supervisord.conf         # Service management configuration
 ├── supervisord-wine.conf    # Desktop setup service
 ├── supervisord-onboard.conf # Virtual keyboard service
