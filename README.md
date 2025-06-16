@@ -1,110 +1,251 @@
-## wine-x11-novnc-docker
+# Wine Manager
 
-![Docker Image Size (tag)](https://img.shields.io/docker/image-size/solarkennedy/wine-x11-novnc-docker/latest)
-![Docker Pulls](https://img.shields.io/docker/pulls/solarkennedy/wine-x11-novnc-docker)
+🍷 **Modern Wine Desktop with Roblox Studio Support** 🎮
 
-🎮 **Modern Wine Desktop with Roblox Studio Support**
+A complete containerized and local Wine environment accessible via web browser, featuring a modern XFCE desktop and optimized Roblox Studio for game development!
 
-A containerized Wine environment accessible via web browser, featuring a modern XFCE desktop and pre-installed Roblox Studio for game development!
-
-This container runs:
-
-* **Xvfb** - X11 in a virtual framebuffer
-* **x11vnc** - A VNC server that scrapes the above X11 server
-* **[noVNC](https://kanaka.github.io/noVNC/)** - A HTML5 canvas VNC viewer
-* **XFCE4** - Modern, lightweight desktop environment
-* **Firefox** - Modern web browser
-* **Wine 64-bit** - Windows compatibility layer
-* **Roblox Studio (Vinegar)** - Optimized Roblox development environment
-
-This is a [trusted build](https://registry.hub.docker.com/u/solarkennedy/wine-x11-novnc-docker/)
-on the Docker Hub.
-
-## Run It
-
-### Local Development
-
-    # Start the container
-    docker run --rm -p 8080:8080 solarkennedy/wine-x11-novnc-docker
-
-    # Show the container ID (this is the VNC password)
-    docker ps
-
-    # Open VNC in your web browser
-    xdg-open http://localhost:8080
-
-### Deploy to Railway.com
-
-This project is fully configured for Railway deployment:
-
-1. **Connect your GitHub repository** to Railway
-2. **Deploy**: Railway will automatically detect the Dockerfile and deploy your application
-3. **Access**: Use the Railway-provided URL to access your Wine application via web browser
-4. **VNC Password**: Use `$$Hello1$$` as the VNC password
-
-#### Railway Configuration
-
-- ✅ **Dynamic Port Handling**: Automatically adapts to Railway's assigned port
-- ✅ **Docker Build**: Uses Dockerfile for containerized deployment  
-- ✅ **Process Management**: Supervisor manages all services (X11, VNC, noVNC, Fluxbox, Wine)
-- ✅ **Resource Optimization**: Includes .dockerignore for faster builds
-
-#### Environment Variables
-
-The application automatically handles Railway's `PORT` environment variable. No additional configuration needed.
-
-In your web browser, enter `$$Hello1$$` as the password, and you will see a modern XFCE desktop with:
-
-- 🎮 **Roblox Studio (Vinegar)** - Optimized game development with better compatibility
-- 🌐 **Firefox Browser** - Modern web browsing experience  
-- ⌨️ **Virtual Keyboard** - On-screen keyboard for mobile/touch devices
-- 🖥️ **XFCE Desktop** - Clean, modern interface
-- 🍷 **Wine 64-bit** - Run Windows applications seamlessly
-
-## 🎮 Using Roblox Studio (Vinegar)
-
-Roblox Studio is automatically installed via Vinegar for optimal compatibility:
-
-1. **Access the desktop** via noVNC in your web browser
-2. **Launch "Roblox Studio (Vinegar)"** from the desktop shortcut
-3. **Start developing** your games with superior performance!
-
-✨ **Vinegar Benefits:**
-- **Better anti-cheat compatibility** - No issues with Roblox's security systems
-- **Optimized Wine configuration** - Specifically tuned for Roblox applications
-- **FPS unlocker support** - Enhanced performance capabilities
-- **Automatic updates** - Keeps Roblox and Wine components current
-- **Superior stability** - Much more reliable than manual Wine setup
-
-🎮 **Bonus**: The container also includes "Roblox Player (Vinegar)" for playing games!
-
-## ⌨️ Using the Virtual Keyboard
-
-Perfect for mobile devices, tablets, and touch screens:
-
-1. **Desktop shortcut** - Click the "Virtual Keyboard" icon on the desktop
-2. **Auto-show** - Keyboard appears automatically when you click text fields
-3. **Touch-friendly** - Optimized for touch input and mobile devices
-4. **Customizable** - Resize and position the keyboard as needed
-5. **Smart hide** - Automatically hides when not needed to save screen space
-
-**Mobile tip**: The virtual keyboard makes Roblox Studio development possible on tablets and phones!
-
-## 🛠️ Customization
-
-This container provides a complete development environment. You can:
-
-- **Install additional software** using `apt` (Linux) or through Wine (Windows apps)
-- **Customize the XFCE desktop** environment to your preferences
-- **Add your own applications** by modifying the Docker image
-- **Use Firefox** to browse documentation, tutorials, or the Roblox Developer Hub
+[![Docker Pulls](https://img.shields.io/docker/pulls/solarkennedy/wine-x11-novnc-docker)](https://hub.docker.com/r/solarkennedy/wine-x11-novnc-docker)
+[![Railway Deploy](https://railway.app/button.svg)](https://railway.app)
 
 ## ✨ Features
 
-- ✅ **64-bit Wine** for modern application compatibility
-- ✅ **Modern XFCE desktop** instead of basic window manager
-- ✅ **Roblox Studio via Vinegar** with superior compatibility and performance
-- ✅ **Firefox browser** for web access
-- ✅ **Virtual keyboard (Onboard)** for mobile/touch device support
-- ✅ **Automatic Windows component installation** (fonts, runtimes)
-- ✅ **Railway.com deployment ready**
+- 🎮 **Roblox Studio (Vinegar)** - Optimized game development environment with superior compatibility
+- 🌐 **Web-based Desktop** - Access via any web browser, no VNC client needed
+- 🍷 **Wine 64-bit** - Run Windows applications seamlessly on Linux
+- 🖥️ **XFCE Desktop** - Modern, lightweight desktop environment
+- ⌨️ **Virtual Keyboard** - Perfect for mobile devices and touch screens
+- 🌐 **Firefox Browser** - Full web browsing capabilities
+- 🐍 **Python Environment** - Isolated dependencies with virtual environment
+- 🔧 **Complete Management** - Full service control and monitoring
+
+## 🚀 Quick Start
+
+### 🌐 Cloud Deployment (Railway)
+
+Deploy to Railway.com cloud platform instantly:
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app)
+
+**OR manually:**
+
+1. Fork this repository
+2. Connect to [Railway.app](https://railway.app)
+3. Deploy from the `railway/` folder
+4. Access via your Railway URL
+5. Password: `$$Hello1$$`
+
+**[📖 Full Railway Documentation →](railway/README.md)**
+
+### 🖥️ Local Installation (Linux)
+
+Run locally on any Linux machine with one command:
+
+```bash
+# Clone repository
+git clone https://github.com/moonsip1224/Wine-manager.git
+cd Wine-manager/local
+
+# Single command installation and startup (handles EVERYTHING)
+./start-wine-manager.sh
+```
+
+This script automatically:
+- ✅ Detects your Linux distribution
+- ✅ Installs ALL dependencies (Wine, XFCE, Python, etc.)
+- ✅ Sets up Python virtual environment
+- ✅ Downloads and configures Vinegar
+- ✅ Initializes Wine prefix for Roblox
+- ✅ Starts all services
+
+**[📖 Full Local Documentation →](local/README.md)**
+
+## 📁 Project Structure
+
+```
+Wine-manager/
+├── railway/                 # ☁️  Cloud deployment (Railway.com)
+│   ├── Dockerfile          # Container definition
+│   ├── start.sh            # Complete setup & start script
+│   ├── install-vinegar.sh  # Vinegar installation
+│   ├── setup-desktop.sh    # Desktop environment setup
+│   ├── supervisord*.conf   # Service management
+│   ├── healthcheck.sh      # Health monitoring
+│   ├── railway.json        # Railway configuration
+│   └── README.md           # Railway deployment guide
+│
+├── local/                   # 🖥️  Local deployment (Linux)
+│   ├── start-wine-manager.sh        # Complete setup & start script
+│   ├── install-dependencies.sh      # System dependency installer
+│   ├── setup-local.sh              # Environment configurator
+│   ├── install-vinegar-local.sh     # Vinegar for local setup
+│   ├── setup-desktop-local.sh       # Desktop setup for local
+│   ├── supervisord-local.conf       # Local service management
+│   ├── requirements.txt             # Python dependencies
+│   ├── healthcheck-local.sh         # Local health monitoring
+│   └── README.md                    # Local deployment guide
+│
+├── .github/workflows/       # 🔄 GitHub Actions
+├── Makefile                # 🐳 Docker build commands
+├── LICENSE                 # 📄 Apache 2.0 License
+└── README.md               # 📖 This file
+```
+
+## 🎮 Roblox Studio Features
+
+### Why Vinegar?
+
+We use **Vinegar** instead of manual Wine setup for superior Roblox compatibility:
+
+| Feature | Manual Wine | **Vinegar** |
+|---------|-------------|-------------|
+| Anti-cheat compatibility | ❌ Issues | ✅ **Perfect** |
+| FPS unlocker support | ❌ Manual setup | ✅ **Built-in** |
+| Wine optimization | ❌ Generic | ✅ **Roblox-specific** |
+| Automatic updates | ❌ Manual | ✅ **Automatic** |
+| Stability | ⚠️ Variable | ✅ **Rock solid** |
+| Setup complexity | 😰 Complex | 😎 **One-click** |
+
+### Available Applications
+
+Once running, access these applications via the web interface:
+
+- 🎮 **Roblox Studio** - Full game development environment
+- 🎮 **Roblox Player** - Play games with friends
+- 🌐 **Firefox** - Browse documentation and tutorials
+- ⌨️ **Virtual Keyboard** - Mobile and touch device support
+- 💻 **Terminal** - Command line access
+- 📁 **File Manager** - Project file management
+
+## 📊 Comparison: Railway vs Local
+
+| Feature | Railway ☁️ | Local 🖥️ |
+|---------|------------|----------|
+| **Setup Time** | 5 minutes | 10-15 minutes |
+| **Cost** | Free tier available | Free (your hardware) |
+| **Performance** | Good | Excellent |
+| **Customization** | Limited | Full control |
+| **Persistence** | Limited storage | Full disk access |
+| **Network Access** | Global URL | Local network |
+| **Resource Control** | Platform limits | Your hardware limits |
+| **Ideal For** | Quick testing, demos | Development, gaming |
+
+## 🔧 Configuration
+
+### Environment Variables
+
+**Both deployments support:**
+- `PORT` - Web interface port (default: 8080)
+
+**Local deployment also supports:**
+- `DISPLAY_RESOLUTION` - Screen resolution (default: 1024x768x24)
+
+### VNC Access
+
+- **URL**: Your deployment URL or `http://localhost:8080`
+- **Password**: `$$Hello1$$`
+
+### Wine Configuration
+
+- **Architecture**: 64-bit (win64)
+- **Prefix Location**: 
+  - Railway: `/root/.local/share/vinegar/prefixes/studio`
+  - Local: `~/.local/share/vinegar/prefixes/studio`
+
+## 🛠️ Development
+
+### Building Locally
+
+```bash
+# Build Docker image (Railway setup)
+make build
+
+# Run locally with Docker
+make run
+
+# Get shell access
+make shell
+```
+
+### Customizing
+
+**Add your own Windows applications:**
+
+1. **Railway**: Modify `railway/setup-desktop.sh`
+2. **Local**: Create desktop shortcuts in `~/Desktop/`
+
+**Example custom application:**
+```bash
+cat > ~/Desktop/My\ App.desktop << EOF
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=My Windows App
+Exec=wine /path/to/app.exe
+Icon=applications-wine
+Terminal=false
+EOF
+```
+
+## 🔍 Monitoring & Troubleshooting
+
+### Health Checks
+
+**Railway**: Automatic health monitoring via platform
+**Local**: Run `~/wine-manager/healthcheck.sh`
+
+### Common Issues
+
+| Issue | Railway Solution | Local Solution |
+|-------|------------------|----------------|
+| **Build fails** | Check Railway logs | Check system dependencies |
+| **VNC not accessible** | Verify health check | Check port availability |
+| **Roblox won't start** | Wait for Wine init | Restart Wine prefix |
+| **Performance issues** | Upgrade Railway tier | Check system resources |
+
+### Logs
+
+**Railway**: View via Railway dashboard
+**Local**: Check `~/wine-manager/logs/`
+
+## 📚 Resources
+
+### Documentation
+- [Railway Deployment Guide](railway/README.md)
+- [Local Installation Guide](local/README.md)
+- [Docker Documentation](https://docs.docker.com/)
+- [Wine Documentation](https://www.winehq.org/documentation)
+
+### Related Projects
+- [Vinegar](https://github.com/vinegarhq/vinegar) - Optimized Roblox launcher
+- [noVNC](https://github.com/novnc/noVNC) - Web-based VNC client
+- [XFCE](https://www.xfce.org/) - Desktop environment
+
+### Community
+- [Roblox Developer Hub](https://create.roblox.com/docs)
+- [Wine AppDB](https://appdb.winehq.org/) - Application compatibility
+- [Vinegar Discord](https://discord.gg/vinegar) - Vinegar support
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test both Railway and local deployments
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+
+## ⭐ Support
+
+If this project helps you, please give it a star! ⭐
+
+For issues and questions:
+1. Check the documentation in `railway/` or `local/` folders
+2. Search existing GitHub issues
+3. Create a new issue with logs and system details
+
+---
+
+**🎮 Happy game development with Roblox Studio! 🚀**
