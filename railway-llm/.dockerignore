@@ -1,0 +1,16 @@
+.git
+.gitignore
+README.md
+.github
+*.md
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+.pytest_cache
+.coverage
+.tox
+venv/
+env/
