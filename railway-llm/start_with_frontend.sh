@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-echo "🚀 Starting Phi-3-mini 128k LLM Server"
-echo "======================================"
+echo "🚀 Starting Phi-3-mini 128k LLM Server with Frontend"
+echo "===================================================="
 
 # Configuration
 export PORT=${PORT:-8000}
@@ -23,6 +23,7 @@ echo "   Threads: $N_THREADS"
 echo "   Batch size: $N_BATCH"
 echo "   Context length: $N_CTX tokens (128k)"
 echo "   GPU layers: $N_GPU_LAYERS (CPU only)"
+echo "   Frontend: Enabled at /frontend"
 
 # Verify model exists
 if [ ! -f "$MODEL_PATH" ]; then
@@ -46,7 +47,7 @@ if command -v free >/dev/null 2>&1; then
     free -h
 fi
 
-echo "🚀 Starting llama-cpp-python server..."
+echo "🚀 Starting llama-cpp-python server with frontend..."
 
 # Set API key for authentication
 export API_KEY="$$Hello1$$"
@@ -54,7 +55,7 @@ export API_KEY="$$Hello1$$"
 echo "🔐 API Key authentication enabled"
 echo "   API Key: $$Hello1$$"
 
-# Start the OpenAI-compatible API server with optimizations
+# Start the OpenAI-compatible API server with optimizations and frontend
 exec python3 -m llama_cpp.server \
     --model "$MODEL_PATH" \
     --host "$HOST" \
@@ -66,4 +67,6 @@ exec python3 -m llama_cpp.server \
     --verbose \
     --chat_format "chatml" \
     --interrupt_requests \
+    --static_folder "./frontend" \
+    --static_url_path "/frontend" \
     --api_key "$API_KEY"

@@ -48,6 +48,7 @@ https://your-railway-app.railway.app
 ```bash
 curl -X POST "https://your-railway-app.railway.app/v1/chat/completions" \
   -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $$Hello1$$" \
   -d '{
     "model": "phi-3-mini-128k",
     "messages": [
@@ -66,7 +67,7 @@ import openai
 # Configure client to use your Railway deployment
 client = openai.OpenAI(
     base_url="https://your-railway-app.railway.app/v1",
-    api_key="not-needed"  # API key not required
+    api_key="$$Hello1$$"  # API key required
 )
 
 response = client.chat.completions.create(
@@ -88,7 +89,7 @@ import OpenAI from 'openai';
 
 const openai = new OpenAI({
   baseURL: 'https://your-railway-app.railway.app/v1',
-  apiKey: 'not-needed', // API key not required
+  apiKey: '$$Hello1$$', // API key required
 });
 
 async function chat() {
@@ -233,10 +234,11 @@ export N_BATCH=1024  # Larger batch size
 
 ## 🔒 Security Notes
 
-- No authentication required by default (suitable for development)
-- Consider adding API key authentication for production
-- Railway provides HTTPS termination automatically
-- Model runs in isolated container environment
+- **API Key Authentication**: Required for all API requests
+- **API Key**: `$$Hello1$$` (configured for easy access)
+- **HTTPS**: Railway provides HTTPS termination automatically
+- **Isolation**: Model runs in isolated container environment
+- **Production**: Consider using environment-specific API keys for production
 
 ---
 
